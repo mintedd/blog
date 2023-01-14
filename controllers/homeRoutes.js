@@ -1,52 +1,34 @@
 const router = require("express").Router();
-const { Post, Comment } = require('../models');
+// const { Post, Comment } = require('../models');
 
-//GET all posts for homepage
-router.get('/', async (req, res) => {
-    try { //try to find all the post in the db
-        const dbPostData = await Post.findAll({
-            include: [
-                {
-                    model: Post,
-                    attributes: ['filename', 'description'], //??
-                },
-            ],
-        });
-        //dbpostdata is the info found in the db, take all that data and then recreate a new array with the new post data recieved
-        const posts = dbPostData.map((post) =>
-            post.get({ plain: true }) //dont really get this part 
-        );
-        //now take all the new post and render it to the homepage
-        res.render('homepage', {
-            posts,
-        });
+const { User } = require('../models');
+const withAuth = require('../utils/auth');
 
-    } catch (error) {
-        console.log(error);
-        res.status(500).json(error);
-    }
+router.get('/', withAuth, async (req, res) => {
+  try {
+    const userData = await User.findAll({
+      attributes: { exclude: ['password'] },
+      order: [['name', 'ASC']],
+    });
+
+    const users = userData.map((project) => project.get({ plain: true }));
+
+    res.render('homepage', {
+      users,
+      logged_in: req.session.logged_in,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
 
-//get one post at a time so that you can click on it and see comments, make comments, or edit?
-router.get('/post/:id', async (req, res) => {
-    try {
-        const dbPostData = await Post.findByPk(req.params.id, {
-            include: [
-                {//kinda confused as to why this is comment
-                    model: Comment,
-                    attributes: [
-                        'id',
-                        'content',
-                    ]
-                }
-            ]
-        });
-        const post = dbPostData.get({ plain: true });
-        res.render('post', { post });
-    } catch (error) {
-        console.log(error);
-        res.status(500).json(error);
-    }
+router.get('/login', (req, res) => {
+  if (req.session.logged_in) {
+    res.redirect('/');
+    return;
+  }
+
+  res.render('login');
 });
 
 module.exports = router;
