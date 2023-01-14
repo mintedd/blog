@@ -1,0 +1,35 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/public/css/" />
+    {{! <script src=""></script> webpack way so we dont have to clutter up the html }}
+  </head>
+  <body>
+    <header>
+      <h1>
+        The Tech Blog
+      </h1>
+      <nav>
+    <a href="/">Home</a>
+    <a href="/dashboard">Dashboard</a>
+        <button id="login">Login</button>
+        {{#if logged_in}}
+          <button class="btn" id="logout">logout</button>
+        {{/if}}
+      </nav>
+    </header>
+
+    <main>
+      <div>
+        {{{body}}}
+      </div>
+    </main>
+    <!-- If the user is logged in, load the JS script for when they logout -->
+    {{#if loggedIn}}
+      <script src="/js/logout.js"></script>
+    {{/if}}
+  </body>
+</html>

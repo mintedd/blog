@@ -12,7 +12,7 @@ const userData = [
         password: "password",
     },
     {
-        username: "ironman",
+        username: "Ironman",
         email: "ironman@gmail.com",
         password: "password",
     },
@@ -20,4 +20,4 @@ const userData = [
 
 
 const seedUsers = () => User.bulkCreate(userData);
-module.exports = userData;
+module.exports = seedUsers;
