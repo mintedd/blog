@@ -18,13 +18,11 @@
     <div class="card-deck">
       <div class="card">
         <div class="card-header">
-          <h5 class="card-title">Card title</h5>
+          <h5 class="card-title">{{title}}</h5>
         </div>
         <div class="card-body">
-          <p class="card-text">This is a longer card with supporting text below
-            as a natural lead-in to additional content. This content is a little
-            bit longer.</p>
-          <p class="card-text"><small class="text-muted">Posted by:</small></p>
+          <p class="card-text">{{body}}</p>
+          <p class="card-text"><small class="text-muted">Posted by: {{user.username}} at {{createdAt}}</small></p> {{!how do i get the user id to show the name}}
         </div>
       </div>
     </div>

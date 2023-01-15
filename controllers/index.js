@@ -9,6 +9,7 @@ const dashboardRoute = require('./dashboardRoute');
 
 
 router.use('/', homeRoute);
+router.use('/api', apiRoutes);
 router.use('/login', loginRoute);
 router.use('/signup', signupRoute);
 router.use('/dashboard', dashboardRoute);
