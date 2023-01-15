@@ -4,26 +4,43 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-  <link rel="stylesheet" href="/css/jass.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/jass.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
     {{! <script src=""></script> webpack way so we dont have to clutter up the html }}
   </head>
   <body>
     <header>
-      <h1>
-        The Tech Blog
-      </h1>
-      <nav>
-        <a href="/">Home</a>
-        <a href="/dashboard">Dashboard</a>
-        {{!-- {{#if loggedIn}} --}}
-          <a id="logout" class="btn-no-style">Logout</a>
-        {{!-- {{else}} --}}
-          <!-- Otherwise, show a link to login -->
-          <a href="/login">Login</a>
-          <a href="/signup" id="signup">Signup</a>
+      <div class="nav justify-content-center">
+        <h1>
+          The Tech Blog
+        </h1>
+      </div>
 
-        {{!-- {{/if}} --}}
+      <nav>
+        <ul class="nav justify-content-center">
+          <li class="nav-item">
+            <a class="nav-link active" href="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="/dashboard">Dashboard</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="/signup">Signup</a>
+          </li>
+          <li>
+            {{#if loggedIn}}
+              <a class="nav-link active" href="/logout">Logout</a>
+            {{else}}
+              <!-- Otherwise, show a link to login -->
+              <a class="nav-link active" href="/login">Login</a>
+            {{/if}}
+          </li>
+        </ul>
       </nav>
     </header>
 
@@ -36,6 +53,6 @@
     {{!-- {{#if loggedIn}}
       <script src="/js/logout.js"></script>
     {{/if}} --}}
-    
+
   </body>
 </html>
