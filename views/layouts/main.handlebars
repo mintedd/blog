@@ -22,11 +22,7 @@
   </head>
   <body>
     <header>
-      <div class="nav justify-content-center">
-        <h1>
-          The Tech Blog
-        </h1>
-      </div>
+          {{>header}} {{! this is going to switch from The Tech Blog to Dashboard}}
 
       <nav>
         <ul class="nav justify-content-center">
@@ -56,6 +52,7 @@
         {{{body}}}
       </div>
     </main>
+    {{>footer}}
     <!-- If the user is logged in, load the JS script for when they logout -->
     {{!-- {{#if loggedIn}}
       <script src="/js/logout.js"></script>
