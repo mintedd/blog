@@ -1,0 +1,1 @@
+// on click at .post show comments

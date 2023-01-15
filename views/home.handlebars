@@ -1,3 +1,21 @@
-<div>
-  {{ post }}
+{{!-- {{#each posts as |post|}}
+<div class="card text-dark bg-light mb-3" style="max-width: 18rem;">
+  <div class="card-header">{{ post.title }} </div>
+  <div class="card-body">
+    <h5 class="card-title">Light card title</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+  </div>
 </div>
+{{/each}} --}}
+
+<section id="post" class="container">
+  {{#each posts}}
+<div class="card text-dark bg-light mb-3" style="max-width: 18rem;">
+  <div class="card-header"> {{ post.title }} </div>
+  <div class="card-body">
+    <h5 class="card-title"> {{ post.body }}</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+  </div>
+</div>
+{{/each}}
+</section>

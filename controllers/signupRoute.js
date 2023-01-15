@@ -1,8 +1,8 @@
 const router = require('express').Router();
 
 router.get('/', (req,res) => {
-  res.render('home', 
-  {title: 'homepage'})
+  res.render('signup', 
+  { title: 'signup' }) // variable?
 });
 
 module.exports = router;
