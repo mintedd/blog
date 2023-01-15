@@ -13,14 +13,16 @@
         The Tech Blog
       </h1>
       <nav>
-    <a href="/">Home</a>
-    <a href="/dashboard">Dashboard</a>
-    {{#if loggedIn}}
-    <button id="logout" class="btn-no-style">Logout</button>
-    {{else}}
-    <!-- Otherwise, show a link to login -->
-    <a href="/login">Login</a>
-    {{/if}}
+        <a href="/">Home</a>
+        <a href="/dashboard">Dashboard</a>
+        {{#if loggedIn}}
+          <a id="logout" class="btn-no-style">Logout</a>
+        {{else}}
+          <!-- Otherwise, show a link to login -->
+          <a href="/login">Login</a>
+          <a href="/signup" id="signup">Signup</a>
+
+        {{/if}}
       </nav>
     </header>
 
